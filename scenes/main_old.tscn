@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgpevvmxlp35x"]
+
+[ext_resource type="Script" uid="uid://c1oalqb4wmyp5" path="res://scripts/texture_rect_old.gd" id="1_3vx28"]
+[ext_resource type="Script" uid="uid://c54cn1q3625qh" path="res://scripts/node_3d_old.gd" id="2_pqydv"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ig7tw"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0xm2m"]
+radius = 15.0
+height = 40.0
+
+[node name="Main" type="HSplitContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("ImageTexture_ig7tw")
+script = ExtResource("1_3vx28")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport"]
+script = ExtResource("2_pqydv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_0xm2m")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.59404)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Node3D"]

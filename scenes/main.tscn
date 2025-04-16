@@ -1,13 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://camqqkyu1wvyw"]
+[gd_scene load_steps=4 format=3 uid="uid://camqqkyu1wvyw"]
 
-[ext_resource type="Script" uid="uid://c1oalqb4wmyp5" path="res://scripts/texture_rect.gd" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://c54cn1q3625qh" path="res://scripts/node_3d.gd" id="2_0xm2m"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_ig7tw"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_0xm2m"]
-radius = 15.0
-height = 40.0
+[ext_resource type="PackedScene" uid="uid://cpp5pbogjemgp" path="res://scenes/drawing_canvas/drawing_canvas.tscn" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://c4eua83nflixg" path="res://scenes/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://dxfv32p1k1co0" path="res://scenes/model_viewer/model_viewer.tscn" id="2_sugp2"]
 
 [node name="Main" type="HSplitContainer"]
 anchors_preset = 15
@@ -17,12 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 2
 size_flags_vertical = 0
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = SubResource("ImageTexture_ig7tw")
-script = ExtResource("1_ig7tw")
+script = ExtResource("1_sugp2")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 2
@@ -32,14 +22,14 @@ size_flags_horizontal = 3
 handle_input_locally = false
 render_target_update_mode = 4
 
-[node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport"]
-script = ExtResource("2_0xm2m")
+[node name="DrawingCanvas" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_0wfyh")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Node3D"]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_0xm2m")
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.59404)
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2"]
+handle_input_locally = false
+render_target_update_mode = 4
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
+[node name="ModelViewer" parent="SubViewportContainer2/SubViewport" instance=ExtResource("2_sugp2")]
