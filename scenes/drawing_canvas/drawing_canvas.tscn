@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpp5pbogjemgp"]
+
+[ext_resource type="Script" uid="uid://cmm2i3hbfode2" path="res://scenes/drawing_canvas/drawing_canvas.gd" id="1_vodts"]
+
+[node name="DrawingCanvas" type="Node"]
+script = ExtResource("1_vodts")

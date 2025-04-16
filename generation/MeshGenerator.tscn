@@ -1,3 +1,0 @@
-[gd_scene load_steps=1 format=3 uid="uid://meshgen"]
-
-[node name="MeshGenerator" type="Node" script="res://Generation/MeshGenerator.gd"]

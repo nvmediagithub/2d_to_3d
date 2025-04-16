@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxfv32p1k1co0"]
+
+[ext_resource type="Script" uid="uid://bxxy60g4rhp5l" path="res://scenes/model_viewer/model_viewer.gd" id="1_gyqv5"]
+
+[node name="ModelViewer" type="Node"]
+script = ExtResource("1_gyqv5")
