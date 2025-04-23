@@ -33,3 +33,5 @@ handle_input_locally = false
 render_target_update_mode = 4
 
 [node name="ModelViewer" parent="SubViewportContainer2/SubViewport" instance=ExtResource("2_sugp2")]
+
+[connection signal="drawing_finished" from="SubViewportContainer/SubViewport/DrawingCanvas" to="." method="_on_drawing_canvas_drawing_finished"]

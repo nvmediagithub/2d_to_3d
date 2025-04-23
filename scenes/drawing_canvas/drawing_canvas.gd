@@ -1,5 +1,7 @@
 extends Control
 
+signal drawing_finished
+
 @onready var texture_rect: TextureRect = $VBoxContainer/TextureRect
 @onready var slider: HSlider = $VBoxContainer/LineThicknessSlider
 var image: Image
@@ -24,6 +26,7 @@ func _input(event):
 			previous_pos = local_pos
 		else:
 			is_drawing = false
+			emit_signal("drawing_finished")
 	elif event is InputEventMouseMotion and is_drawing:
 		var local_pos = texture_rect.get_local_mouse_position()
 		_draw_line(previous_pos, local_pos)

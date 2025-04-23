@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cgpevvmxlp35x"]
 
 [ext_resource type="Script" uid="uid://c1oalqb4wmyp5" path="res://scripts/texture_rect_old.gd" id="1_3vx28"]
-[ext_resource type="Script" uid="uid://c54cn1q3625qh" path="res://scripts/node_3d_old.gd" id="2_pqydv"]
+[ext_resource type="Script" uid="uid://c54cn1q3625qh" path="res://scripts/marching_squares_old.gd" id="2_pqydv"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_ig7tw"]
 
