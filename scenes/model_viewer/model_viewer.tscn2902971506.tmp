@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxfv32p1k1co0"]
+
+[ext_resource type="Script" uid="uid://bxxy60g4rhp5l" path="res://scenes/model_viewer/model_viewer.gd" id="1_gyqv5"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_gyqv5"]
+
+[node name="ModelViewer" type="Node3D"]
+script = ExtResource("1_gyqv5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_gyqv5")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.3502)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.776421, 0, 0.630215, 0, 1, 0, -0.630215, 0, 0.776421, 0, 0, 0)

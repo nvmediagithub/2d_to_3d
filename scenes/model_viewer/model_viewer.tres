@@ -1,0 +1,34 @@
+[gd_resource type="VisualShader" load_steps=2 format=3 uid="uid://0j8aynkbn312"]
+
+[sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_mpayv"]
+default_input_values = [0, Vector3(1, 0, 1)]
+function = 4
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+
+
+
+void fragment() {
+	vec3 n_out2p0;
+// ColorFunc:2
+	vec3 n_in2p0 = vec3(1.00000, 0.00000, 1.00000);
+	{
+		vec3 c = clamp(n_in2p0, vec3(0.0), vec3(1.0));
+		const vec3 a = vec3(0.055f);
+		n_out2p0 = mix((vec3(1.0f) + a) * pow(c.rgb, vec3(1.0f / 2.4f)) - a, 12.92f * c.rgb, lessThan(c.rgb, vec3(0.0031308f)));
+	}
+
+
+// Output:0
+	ALBEDO = n_out2p0;
+
+
+}
+"
+graph_offset = Vector2(-132.982, -53.2836)
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorFunc_mpayv")
+nodes/fragment/2/position = Vector2(40, 160)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0)

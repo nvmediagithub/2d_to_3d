@@ -1,8 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxfv32p1k1co0"]
+[gd_scene load_steps=5 format=3 uid="uid://dxfv32p1k1co0"]
 
 [ext_resource type="Script" uid="uid://bxxy60g4rhp5l" path="res://scenes/model_viewer/model_viewer.gd" id="1_gyqv5"]
+[ext_resource type="Shader" uid="uid://0j8aynkbn312" path="res://scenes/model_viewer/model_viewer.tres" id="2_le6yo"]
+[ext_resource type="ArrayMesh" uid="uid://ml0l0ulrxcba" path="res://test_mesh.OBJ" id="3_yyi27"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_le6yo"]
+render_priority = 0
+shader = ExtResource("2_le6yo")
 
 [node name="ModelViewer" type="Node3D"]
 script = ExtResource("1_gyqv5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_le6yo")
+mesh = ExtResource("3_yyi27")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0659779, 0.997821, 0, -0.997821, -0.0659779, 0, 7.53806, 1.6974)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.776421, 0, 0.630215, 0, 1, 0, -0.630215, 0, 0.776421, 0, 0, 0)
