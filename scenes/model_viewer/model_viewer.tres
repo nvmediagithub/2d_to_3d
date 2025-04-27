@@ -6,7 +6,7 @@ function = 4
 
 [resource]
 code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_schlick_ggx;
 
 
 
@@ -28,7 +28,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-132.982, -53.2836)
+modes/cull = 2
 nodes/fragment/2/node = SubResource("VisualShaderNodeColorFunc_mpayv")
 nodes/fragment/2/position = Vector2(40, 160)
 nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0)
