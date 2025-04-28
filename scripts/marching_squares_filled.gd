@@ -72,9 +72,9 @@ func generate_mesh(image: Image) -> ArrayMesh:
 				center += p
 			center /= poly_pts.size()
 
-			poly_pts.sort_custom(func(a, b):
-				var ang_a = atan2(a.y - center.y, a.x - center.x)
-				var ang_b = atan2(b.y - center.y, b.x - center.x)
+			poly_pts.sort_custom(func(v1, v2):
+				var ang_a = atan2(v1.y - center.y, v1.x - center.x)
+				var ang_b = atan2(v2.y - center.y, v2.x - center.x)
 				return ang_a < ang_b
 			)
 
